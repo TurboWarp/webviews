@@ -1,0 +1,8 @@
+{
+  "title": "Window Title Example",
+  "index": "./www/index.html",
+  "width": 480,
+  "height": 360,
+  "iconWidth": 2,
+  "iconHeight": 2
+}
