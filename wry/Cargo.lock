@@ -1012,13 +1012,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "pry"
-version = "0.1.0"
-dependencies = [
- "wry",
-]
-
-[[package]]
 name = "quote"
 version = "1.0.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1442,6 +1435,13 @@ dependencies = [
  "pkg-config",
  "soup-sys",
  "system-deps 3.2.0",
+]
+
+[[package]]
+name = "webview"
+version = "0.1.0"
+dependencies = [
+ "wry",
 ]
 
 [[package]]

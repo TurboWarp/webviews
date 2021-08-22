@@ -42,8 +42,8 @@ fn run_config(config: Config) -> wry::Result<()> {
     .build(&event_loop)?;
 
   let _webview = WebViewBuilder::new(window)?
-    .with_custom_protocol("pry".to_string(), move |requested_path| {
-      let path = requested_path.replace("pry://", "");
+    .with_custom_protocol("webview".to_string(), move |requested_path| {
+      let path = requested_path.replace("webview://", "");
       let content = std::fs::read(&path)?;
       if path.ends_with(".html") {
         Ok((content, "text/html".to_string()))
@@ -53,7 +53,7 @@ fn run_config(config: Config) -> wry::Result<()> {
         Ok((content, "application/octet-stream".to_string()))
       }
     })
-    .with_url(format!("pry://{}", config.index).as_str())?
+    .with_url(format!("webview://{}", config.index).as_str())?
     .build()?;
 
   event_loop.run(move |event, _, control_flow| {
