@@ -3,9 +3,9 @@ struct Config {
   index: String,
   width: i32,
   height: i32,
-  iconPixels: Vec<u8>,
-  iconWidth: u32,
-  iconHeight: u32
+  icon_pixels: Vec<u8>,
+  icon_width: u32,
+  icon_height: u32
 }
 
 fn load_config() -> Config {
@@ -14,9 +14,9 @@ fn load_config() -> Config {
     index: "./www/index.html".to_string(),
     width: 480,
     height: 360,
-    iconPixels: vec![255, 0, 0, 255],
-    iconWidth: 1,
-    iconHeight: 1
+    icon_pixels: vec![255, 0, 0, 255],
+    icon_width: 1,
+    icon_height: 1
   }
 }
 
@@ -38,7 +38,7 @@ fn run_config(config: Config) -> wry::Result<()> {
       width: config.width,
       height: config.height
     })
-    .with_window_icon(Some(Icon::from_rgba(config.iconPixels, config.iconWidth, config.iconHeight)?))
+    .with_window_icon(Some(Icon::from_rgba(config.icon_pixels, config.icon_width, config.icon_height)?))
     .build(&event_loop)?;
 
   let _webview = WebViewBuilder::new(window)?
