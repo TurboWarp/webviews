@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E93C68C126D4384800F82393 /* application_config.json in Resources */ = {isa = PBXBuildFile; fileRef = E93C68C026D4384800F82393 /* application_config.json */; };
+		E93C68C326D445B600F82393 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93C68C226D445B600F82393 /* WindowController.swift */; };
+		E93C68C526D445FB00F82393 /* application_config.json in Resources */ = {isa = PBXBuildFile; fileRef = E93C68C426D445FB00F82393 /* application_config.json */; };
 		E9F655BC26D2C6FD002DD3C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F655BB26D2C6FD002DD3C1 /* AppDelegate.swift */; };
 		E9F655BE26D2C6FD002DD3C1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F655BD26D2C6FD002DD3C1 /* ViewController.swift */; };
 		E9F655C026D2C6FE002DD3C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9F655BF26D2C6FE002DD3C1 /* Assets.xcassets */; };
@@ -16,7 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E93C68C026D4384800F82393 /* application_config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = application_config.json; path = ../../../webviews2/macos/WebView/application_config.json; sourceTree = "<group>"; };
+		E93C68C226D445B600F82393 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
+		E93C68C426D445FB00F82393 /* application_config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = application_config.json; sourceTree = "<group>"; };
 		E9D362CE26D3352300AE2F13 /* WebView.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = WebView.entitlements; sourceTree = "<group>"; };
 		E9F655B826D2C6FD002DD3C1 /* WebView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9F655BB26D2C6FD002DD3C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -59,7 +61,8 @@
 			children = (
 				E9D362CE26D3352300AE2F13 /* WebView.entitlements */,
 				E9F655CF26D2D003002DD3C1 /* index.html */,
-				E93C68C026D4384800F82393 /* application_config.json */,
+				E93C68C426D445FB00F82393 /* application_config.json */,
+				E93C68C226D445B600F82393 /* WindowController.swift */,
 				E9F655BB26D2C6FD002DD3C1 /* AppDelegate.swift */,
 				E9F655BD26D2C6FD002DD3C1 /* ViewController.swift */,
 				E9F655BF26D2C6FE002DD3C1 /* Assets.xcassets */,
@@ -126,7 +129,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E93C68C126D4384800F82393 /* application_config.json in Resources */,
+				E93C68C526D445FB00F82393 /* application_config.json in Resources */,
 				E9F655D026D2D003002DD3C1 /* index.html in Resources */,
 				E9F655C026D2C6FE002DD3C1 /* Assets.xcassets in Resources */,
 				E9F655C326D2C6FE002DD3C1 /* Main.storyboard in Resources */,
@@ -141,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9F655BE26D2C6FD002DD3C1 /* ViewController.swift in Sources */,
+				E93C68C326D445B600F82393 /* WindowController.swift in Sources */,
 				E9F655BC26D2C6FD002DD3C1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
