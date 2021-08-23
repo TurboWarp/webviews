@@ -17,7 +17,6 @@ class ViewController: NSViewController, WKNavigationDelegate {
         if let dict = configParsed as? [String: Any] {
             if let title = dict["title"] as? String {
                 self.windowTitle = title
-                print(self.windowTitle)
             }
             if let number = dict["width"] as? Int {
                 width = number
