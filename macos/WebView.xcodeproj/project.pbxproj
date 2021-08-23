@@ -15,7 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E9F655B826D2C6FD002DD3C1 /* Pry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pry.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9F655B826D2C6FD002DD3C1 /* WebView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9F655BB26D2C6FD002DD3C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9F655BD26D2C6FD002DD3C1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E9F655BF26D2C6FE002DD3C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -39,7 +39,7 @@
 		E9F655AF26D2C6FD002DD3C1 = {
 			isa = PBXGroup;
 			children = (
-				E9F655BA26D2C6FD002DD3C1 /* Pry */,
+				E9F655BA26D2C6FD002DD3C1 /* WebView */,
 				E9F655B926D2C6FD002DD3C1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -47,12 +47,12 @@
 		E9F655B926D2C6FD002DD3C1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E9F655B826D2C6FD002DD3C1 /* Pry.app */,
+				E9F655B826D2C6FD002DD3C1 /* WebView.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E9F655BA26D2C6FD002DD3C1 /* Pry */ = {
+		E9F655BA26D2C6FD002DD3C1 /* WebView */ = {
 			isa = PBXGroup;
 			children = (
 				E9F655CF26D2D003002DD3C1 /* index.html */,
@@ -63,15 +63,15 @@
 				E9F655C426D2C6FE002DD3C1 /* Info.plist */,
 				E9F655C526D2C6FE002DD3C1 /* Pry.entitlements */,
 			);
-			path = Pry;
+			path = WebView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E9F655B726D2C6FD002DD3C1 /* Pry */ = {
+		E9F655B726D2C6FD002DD3C1 /* WebView */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E9F655C826D2C6FE002DD3C1 /* Build configuration list for PBXNativeTarget "Pry" */;
+			buildConfigurationList = E9F655C826D2C6FE002DD3C1 /* Build configuration list for PBXNativeTarget "WebView" */;
 			buildPhases = (
 				E9F655B426D2C6FD002DD3C1 /* Sources */,
 				E9F655B526D2C6FD002DD3C1 /* Frameworks */,
@@ -81,9 +81,9 @@
 			);
 			dependencies = (
 			);
-			name = Pry;
+			name = WebView;
 			productName = Pry;
-			productReference = E9F655B826D2C6FD002DD3C1 /* Pry.app */;
+			productReference = E9F655B826D2C6FD002DD3C1 /* WebView.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -100,7 +100,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E9F655B326D2C6FD002DD3C1 /* Build configuration list for PBXProject "Pry" */;
+			buildConfigurationList = E9F655B326D2C6FD002DD3C1 /* Build configuration list for PBXProject "WebView" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -113,7 +113,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E9F655B726D2C6FD002DD3C1 /* Pry */,
+				E9F655B726D2C6FD002DD3C1 /* WebView */,
 			);
 		};
 /* End PBXProject section */
@@ -280,7 +280,7 @@
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = Pry/Info.plist;
+				INFOPLIST_FILE = WebView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -302,7 +302,7 @@
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = Pry/Info.plist;
+				INFOPLIST_FILE = WebView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -317,7 +317,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E9F655B326D2C6FD002DD3C1 /* Build configuration list for PBXProject "Pry" */ = {
+		E9F655B326D2C6FD002DD3C1 /* Build configuration list for PBXProject "WebView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E9F655C626D2C6FE002DD3C1 /* Debug */,
@@ -326,7 +326,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E9F655C826D2C6FE002DD3C1 /* Build configuration list for PBXNativeTarget "Pry" */ = {
+		E9F655C826D2C6FE002DD3C1 /* Build configuration list for PBXNativeTarget "WebView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E9F655C926D2C6FE002DD3C1 /* Debug */,
