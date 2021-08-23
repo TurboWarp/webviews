@@ -40,6 +40,9 @@ class ViewController: NSViewController, WKNavigationDelegate, WKUIDelegate {
         webView.navigationDelegate = self
         webView.uiDelegate = self
         webView.configuration.preferences.setValue(true, forKey: "allowFileAccessFromFileURLs")
+        #if DEBUG
+        webView.configuration.preferences.setValue(true, forKey: "developerExtrasEnabled")
+        #endif
         webView.isHidden = true
     }
 
