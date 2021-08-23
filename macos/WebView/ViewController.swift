@@ -1,7 +1,7 @@
 import Cocoa
 import WebKit
 
-class ViewController: NSViewController, WKNavigationDelegate {
+class ViewController: NSViewController, WKNavigationDelegate, WKUIDelegate {
     @IBOutlet var webView: WKWebView!
     var windowTitle: String = "Window Title"
     override func loadView() {
@@ -38,6 +38,7 @@ class ViewController: NSViewController, WKNavigationDelegate {
         view.frame = CGRect(x: 0, y: 0, width: width, height: height)
 
         webView.navigationDelegate = self
+        webView.uiDelegate = self
         webView.configuration.preferences.setValue(true, forKey: "allowFileAccessFromFileURLs")
         webView.isHidden = true
     }
@@ -55,5 +56,24 @@ class ViewController: NSViewController, WKNavigationDelegate {
 
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         webView.isHidden = false
+    }
+//    TODO: somehow have to make file saving work...
+//    but WKWebView is busted https://bugs.webkit.org/show_bug.cgi?id=216918
+    func webView(_ webView: WKWebView, runOpenPanelWith parameters: WKOpenPanelParameters, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping ([URL]?) -> Void) {
+        let openPanel = NSOpenPanel()
+        openPanel.canChooseFiles = true
+        openPanel.canChooseDirectories = false
+        openPanel.allowsMultipleSelection = parameters.allowsMultipleSelection
+        openPanel.allowedFileTypes = ["txt", "csv", "tsv"]
+        openPanel.allowsOtherFileTypes = true
+        openPanel.begin { (result) -> Void in
+            if result == NSApplication.ModalResponse.OK {
+                if let url = openPanel.url {
+                    completionHandler([url])
+                    return
+                }
+            }
+            completionHandler(nil)
+        }
     }
 }
