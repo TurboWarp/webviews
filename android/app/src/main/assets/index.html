@@ -1,0 +1,8 @@
+<h1>It works!</h1>
+<p id="counter">0</p>
+<script>
+const counter = document.querySelector("#counter");
+setInterval(() => {
+    counter.textContent = +counter.textContent + 1;
+}, 1000);
+</script>
