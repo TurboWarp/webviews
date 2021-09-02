@@ -1,4 +1,4 @@
-package org.turbowarp.packager.demo
+package org.turbowarp.webviews.android
 
 import org.junit.Test
 

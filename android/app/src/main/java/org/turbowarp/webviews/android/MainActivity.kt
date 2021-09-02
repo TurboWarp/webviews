@@ -1,4 +1,4 @@
-package org.turbowarp.packager.demo
+package org.turbowarp.webviews.android
 
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
