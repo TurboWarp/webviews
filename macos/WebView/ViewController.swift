@@ -1,9 +1,11 @@
 import Cocoa
 import WebKit
 
-class ViewController: NSViewController, WKNavigationDelegate, WKUIDelegate {
+class ViewController: NSViewController, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHandler {
     @IBOutlet var webView: WKWebView!
+
     var windowTitle: String = "Window Title"
+
     override func loadView() {
         super.loadView()
 
@@ -39,7 +41,8 @@ class ViewController: NSViewController, WKNavigationDelegate, WKUIDelegate {
 
         webView.navigationDelegate = self
         webView.uiDelegate = self
-        webView.configuration.preferences.setValue(true, forKey: "allowFileAccessFromFileURLs")
+        webView.configuration.userContentController.add(self, name: "download")
+            webView.configuration.preferences.setValue(true, forKey: "allowFileAccessFromFileURLs")
         #if DEBUG
         webView.configuration.preferences.setValue(true, forKey: "developerExtrasEnabled")
         #endif
@@ -60,23 +63,38 @@ class ViewController: NSViewController, WKNavigationDelegate, WKUIDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         webView.isHidden = false
     }
-//    TODO: somehow have to make file saving work...
-//    but WKWebView is busted https://bugs.webkit.org/show_bug.cgi?id=216918
+
     func webView(_ webView: WKWebView, runOpenPanelWith parameters: WKOpenPanelParameters, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping ([URL]?) -> Void) {
-        let openPanel = NSOpenPanel()
-        openPanel.canChooseFiles = true
-        openPanel.canChooseDirectories = false
-        openPanel.allowsMultipleSelection = parameters.allowsMultipleSelection
-        openPanel.allowedFileTypes = ["txt", "csv", "tsv"]
-        openPanel.allowsOtherFileTypes = true
-        openPanel.begin { (result) -> Void in
-            if result == NSApplication.ModalResponse.OK {
-                if let url = openPanel.url {
-                    completionHandler([url])
-                    return
+        let panel = NSOpenPanel()
+        panel.canChooseFiles = true
+        panel.canChooseDirectories = false
+        panel.allowsMultipleSelection = parameters.allowsMultipleSelection
+        panel.allowedFileTypes = ["txt", "csv", "tsv"]
+        panel.allowsOtherFileTypes = true
+        panel.begin { (result) -> Void in
+            if result == NSApplication.ModalResponse.OK, let url = panel.url {
+                completionHandler([url])
+            } else {
+                completionHandler(nil)
+            }
+        }
+    }
+
+    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+        if message.name == "download",
+           let body = message.body as? NSDictionary,
+           let name = body["name"] as? NSString,
+           let rawData = body["data"] as? [UInt8] {
+            let panel = NSSavePanel()
+            panel.allowsOtherFileTypes = true
+            panel.nameFieldStringValue = name as String
+            panel.allowedFileTypes = ["txt"]
+            panel.begin { (result) -> Void in
+                if result == NSApplication.ModalResponse.OK, let url = panel.url {
+                    let data = Data(rawData)
+                    try! data.write(to: url)
                 }
             }
-            completionHandler(nil)
         }
     }
 }
