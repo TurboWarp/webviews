@@ -12,7 +12,7 @@ class ViewController: NSViewController, WKNavigationDelegate, WKUIDelegate, WKSc
         let configUrl = Bundle.main.url(forResource: "application_config", withExtension: "json")!
         let configContents = try! Data(contentsOf: configUrl);
         let configParsed = try! JSONSerialization.jsonObject(with: configContents, options: [])
-        
+
         var width = 480
         var height = 360
         var background = NSColor.black.cgColor
@@ -54,13 +54,31 @@ class ViewController: NSViewController, WKNavigationDelegate, WKUIDelegate, WKSc
         let url = Bundle.main.url(forResource: "index", withExtension: "html")!
         webView.loadFileURL(url, allowingReadAccessTo: url.deletingLastPathComponent())
     }
-    
+
     override func viewDidAppear() {
         super.viewDidAppear()
         view.window?.title = windowTitle
     }
 
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        webView.evaluateJavaScript("""
+        window.ExternalDownloadHelper = {
+            download: (filename, blob) => {
+                const reader = new FileReader();
+                reader.onload = () => {
+                    const array = Array.from(new Uint8Array(reader.result));
+                    webkit.messageHandlers.download.postMessage({
+                        name: filename,
+                        data: array
+                    });
+                };
+                reader.onerror = () => {
+                    console.error(reader.error);
+                };
+                reader.readAsArrayBuffer(blob);
+            }
+        };
+        """)
         webView.isHidden = false
     }
 
