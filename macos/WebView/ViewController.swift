@@ -42,7 +42,7 @@ class ViewController: NSViewController, WKNavigationDelegate, WKUIDelegate, WKSc
         webView.navigationDelegate = self
         webView.uiDelegate = self
         webView.configuration.userContentController.add(self, name: "download")
-            webView.configuration.preferences.setValue(true, forKey: "allowFileAccessFromFileURLs")
+        webView.configuration.preferences.setValue(true, forKey: "allowFileAccessFromFileURLs")
         #if DEBUG
         webView.configuration.preferences.setValue(true, forKey: "developerExtrasEnabled")
         #endif
