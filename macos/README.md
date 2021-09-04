@@ -14,10 +14,10 @@ WebView.app is just a folder. Important files:
  - WebView.app/Contents/MacOS/WebView is the executable program, make sure `CFBundleExecutable` in Info.plist matches.
  - WebView.app/Contents/Resources/index.html is the file that will be opened
  - WebView.app/Contents/Resources/application_config.json is a JSON object with properties:
-  - `title` (string) - window title
-  - `width` (number) - window width
-  - `height` (number) - window height
-  - `background` (array of numbers) - a 4 number array of R, G, B [0-255], and A [0-1]
+   - `title` (string) - window title
+   - `width` (number) - window width
+   - `height` (number) - window height
+   - `background` (array of numbers) - a 4 number array of R, G, B [0-255], and A [0-1]
  - WebView.app/Contents/Resources/AppIcon.icns is the app icon
   - Delete WebView.app/Contents/Resources/Assets.car, otherwise AppIcon.icns gets ignored for some reason
 
