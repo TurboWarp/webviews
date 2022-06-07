@@ -1,5 +1,7 @@
 # webviews
 
+**The small part of this repository that is still maintained has moved to https://github.com/TurboWarp/packager/tree/master/wkwebview**
+
 Relatively simple wrappers around the WebView built in to some operating systems.
 
 We intend to use these in the [TurboWarp Packager](https://packager.turbowarp.org/). If you can find another use, that's great. Typically, each executable will read files like `application_config.json` to configure things like title, width, height, etc., which allows us to ship static executables and glue everything together with simple JavaScript.
